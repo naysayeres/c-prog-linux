@@ -11,4 +11,24 @@ ldd позволяет получить список всех динамичес
 параметр -u, позволяющий выводить список связанных, но не используемых разделяемых библиотек;
 также параметры -d и -r, позволяющие осуществлять релокации объектов данных и функций.
 
---вывод из консоли с примерами применения ldd на a.out - пока не добился, проблемы с копированием вывода с виртуалки на мой пк..(
+пример вывода:
+
+[root@localhost c_prog]# ldd  a.out
+        linux-vdso.so.1 (0x00007ffda47fc000)
+        libc.so.6 => /lib64/libc.so.6 (0x00007fa3c9c13000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007fa3c9dfd000)
+
+[root@localhost c_prog]# ldd -v a.out
+        linux-vdso.so.1 (0x00007ffcb69de000)
+        libc.so.6 => /lib64/libc.so.6 (0x00007f60a2e5a000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f60a3044000)
+
+        Version information:
+        ./a.out:
+                libc.so.6 (GLIBC_2.2.5) => /lib64/libc.so.6
+                libc.so.6 (GLIBC_2.34) => /lib64/libc.so.6
+        /lib64/libc.so.6:
+                ld-linux-x86-64.so.2 (GLIBC_2.2.5) => /lib64/ld-linux-x86-64.so.2
+                ld-linux-x86-64.so.2 (GLIBC_2.3) => /lib64/ld-linux-x86-64.so.2
+                ld-linux-x86-64.so.2 (GLIBC_PRIVATE) => /lib64/ld-linux-x86-64.so.2
+
